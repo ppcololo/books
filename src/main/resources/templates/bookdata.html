@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="stylesheet" href="/jquery.dataTables.min.css"/>
+    <script type="text/javascript" language="javascript" src="/jquery-1.12.4.js"></script>
+    <script type="text/javascript" language="javascript" src="/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" class="init">
+        $(document).ready(function () {
+            $('#book').DataTable();
+        });
+    </script>
+</head>
+<body>
+
+<br/>
+<h1>Редактирование книги</h1>
+<form action="#" th:action="@{/update}" th:object="${book}" method="post">
+    <table id="book" class="cell-border">
+        <tr>
+            <td><b>№</b></td>
+            <td><b>Название</b></td>
+            <td><b>Описание</b></td>
+            <td><b>ISBN</b></td>
+            <td><b>Год выпуска</b></td>
+            <td></td>
+        </tr>
+        <th:block th:object="${book}">
+            <tr>
+                <td th:inline="text">
+                    [[${book.id}]]
+                    <input type="hidden" title="id" th:field="${book.id}"/>
+                </td>
+                <td>
+                    <input type="text" title="title" th:field="${book.title}" required="required"/>
+                </td>
+                <td>
+                     <textarea title="description" cols="50" rows="2" th:field="${book.description}" required="required">
+                </textarea>
+                </td>
+                <td>
+                    <input type="text" title="isbn" th:field="${book.isbn}" required="required"/>
+                </td>
+                <td>
+                    <input type="text" title="printYear" th:field="${book.printYear}" required="required"/>
+                </td>
+                <td colspan="2">
+                    <input type="submit" class="button" value="Обновить"/>
+                </td>
+            </tr>
+        </th:block>
+    </table>
+</form>
+<br/>
+<br/>
+<a href="/books">Назад на книжную полку</a>
+</body>
+</html>

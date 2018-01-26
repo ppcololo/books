@@ -1,0 +1,122 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <title>Books Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="stylesheet" href="/jquery.dataTables.min.css"/>
+    <script type="text/javascript" language="javascript" src="/jquery-1.12.4.js"></script>
+    <script type="text/javascript" language="javascript" src="/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" class="init">
+        $(document).ready(function () {
+            $('#book').DataTable({
+                "pageLength": 10
+                }
+            );
+        });
+    </script>
+</head>
+<body>
+
+<br/>
+<h1>Книжная полка (<a href="#add">Добавить книгу</a>)</h1>
+
+<table id="book" class="cell-border" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+        <th><b>№</b></th>
+        <th><b>Название</b></th>
+        <th><b>Описание</b></th>
+        <th><b>Автор</b></th>
+        <th><b>ISBN</b></th>
+        <th><b>Год выпуска</b></th>
+        <th><b>Статус</b></th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="book : ${books}">
+        <tr>
+            <td th:text="${book.id}">
+            </td>
+            <td th:text="${book.title}">
+            </td>
+            <td th:text="${book.description}">
+            </td>
+            <td th:text="${book.author}">
+            </td>
+            <td th:text="${book.isbn}">
+            </td>
+            <td th:text="${book.printYear}">
+            </td>
+            <td>
+                <span th:if="${book.readAlready}">Прочитана</span>
+                <span th:unless="${book.readAlready}"><a th:href="@{'/read/' + ${book.id}}">Уже прочитал</a></span>
+            </td>
+            <td>
+                <a th:href="@{'/edit/' + ${book.id}}">Редактировать</a>
+            </td>
+            <td>
+                <a th:href="@{'/delete/' + ${book.id}}">Удалить</a>
+            </td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+
+<br/>
+<a name="add"></a>
+<h1>Добавить книгу</h1>
+
+<form action="#" name="addBook" id="addBook" th:action="@{/books/add#add}" th:object="${book}" method="post">
+    <table class="cell-border">
+        <tr>
+            <td>
+                Название
+            </td>
+            <td>
+                <input type="text" id="title" title="title" name="title" th:field="${book.title}" size="50"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Описание
+            </td>
+            <td>
+                <textarea title="description" cols="50" rows="2" th:field="${book.description}">
+                </textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Автор
+            </td>
+            <td>
+                <input type="text" title="author" th:field="${book.author}" size="50"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                ISBN
+            </td>
+            <td>
+                <input type="text" title="isbn" th:field="${book.isbn}" size="50"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Год выпуска
+            </td>
+            <td>
+                <input type="number" max="2099" title="printYear" th:field="${book.printYear}" size="50"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right">
+                <input type="submit" class="button" value="Добавить"/> <input type="reset" class="button" value="Сбросить"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
