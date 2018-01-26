@@ -72,48 +72,51 @@
     <table class="cell-border">
         <tr>
             <td>
-                Название
+                Название:
             </td>
             <td>
-                <input type="text" id="title" title="title" name="title" th:field="${book.title}" size="50"/>
+                <input type="text" id="title" title="title" name="title" th:field="${book.title}" size="50"
+                       required="required"/>
             </td>
         </tr>
         <tr>
             <td>
-                Описание
+                Описание:
             </td>
             <td>
-                <textarea title="description" cols="50" rows="2" th:field="${book.description}">
+                <textarea title="description" cols="50" rows="2" th:field="${book.description}" required="required">
                 </textarea>
             </td>
         </tr>
         <tr>
             <td>
-                Автор
+                Автор:
             </td>
             <td>
-                <input type="text" title="author" th:field="${book.author}" size="50"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                ISBN
-            </td>
-            <td>
-                <input type="text" title="isbn" th:field="${book.isbn}" size="50"/>
+                <input type="text" title="author" th:field="${book.author}" size="50" required="required"/>
             </td>
         </tr>
         <tr>
             <td>
-                Год выпуска
+                ISBN:
             </td>
             <td>
-                <input type="number" max="2099" title="printYear" th:field="${book.printYear}" size="50"/>
+                <input type="text" title="isbn" th:field="${book.isbn}" size="50" required="required"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Год выпуска:
+            </td>
+            <td>
+                <input type="number" max="2099" title="printYear" th:field="${book.printYear}" size="50"
+                       required="required"/>
             </td>
         </tr>
         <tr>
             <td colspan="2" align="right">
-                <input type="submit" class="button" value="Добавить"/> <input type="reset" class="button" value="Сбросить"/>
+                <input type="submit" class="button" value="Добавить"/> <input type="reset" class="button"
+                                                                              value="Сбросить"/>
             </td>
         </tr>
     </table>

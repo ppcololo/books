@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.Locale;
-
 @Controller
 public class BookController {
     private BookRepository bookRepository;
@@ -50,7 +48,6 @@ public class BookController {
 
     @RequestMapping("/update")
     public String bookData(Book book) {
-        System.out.println("book: " + book.toString());
         bookRepository.updateBook(book.getId(),
                 book.getTitle(),
                 book.getDescription(),

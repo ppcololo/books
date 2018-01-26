@@ -14,7 +14,7 @@
 <body>
 
 <br/>
-<h1>Редактирование книги</h1>
+<h1>Редактирование книги:</h1>
 <form action="#" th:action="@{/update}" th:object="${book}" method="post">
     <table id="book" class="cell-border">
         <tr>
@@ -42,7 +42,7 @@
                     <input type="text" title="isbn" th:field="${book.isbn}" required="required"/>
                 </td>
                 <td>
-                    <input type="text" title="printYear" th:field="${book.printYear}" required="required"/>
+                    <input type="number" max="2099" title="printYear" th:field="${book.printYear}" required="required"/>
                 </td>
                 <td colspan="2">
                     <input type="submit" class="button" value="Обновить"/>

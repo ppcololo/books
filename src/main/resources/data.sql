@@ -20,4 +20,5 @@ INSERT INTO book (title, description, author, isbn, printyear) VALUES ('Я, ро
 INSERT INTO book (title, description, author, isbn, printyear) VALUES ('Мечтают ли андроиды об электроовцах?', 'Тестовое описание книги', 'Филип К. Дик', '5-05-000746-19', 2008);
 INSERT INTO book (title, description, author, isbn, printyear) VALUES ('Нейромант', 'Тестовое описание книги', 'Уильям Гибсон', '5-05-000746-20', 2009);
 INSERT INTO book (title, description, author, isbn, printyear) VALUES ('2001: Космическая Одиссея', 'Тестовое описание книги', 'Артур Кларк', '5-05-000746-21', 2010);
-INSERT INTO book (title, description, author, isbn, printyear) VALUES ('Парк Юрского периода', 'Тестовое описание книги', 'Майкл Крайтон', '5-05-000746-21', 2011);
+INSERT INTO book (title, description, author, isbn, printyear)
+VALUES ('Парк Юрского периода', 'Тестовое описание книги', 'Майкл Крайтон', '5-05-000746-22', 2011);
