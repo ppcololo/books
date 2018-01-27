@@ -20,7 +20,7 @@
 <br/>
 <h1>Книжная полка (<a href="#add">Добавить книгу</a>)</h1>
 
-<table id="book" class="cell-border" cellspacing="0" width="100%">
+<table id="book" class="display" cellspacing="0" width="100%">
     <thead>
     <tr>
         <th><b>№</b></th>
@@ -51,7 +51,7 @@
             </td>
             <td>
                 <span th:if="${book.readAlready}">Прочитана</span>
-                <span th:unless="${book.readAlready}"><a th:href="@{'/read/' + ${book.id}}">Уже прочитал</a></span>
+                <span th:unless="${book.readAlready}"><a th:href="@{'/read/' + ${book.id}}">Прочитать</a></span>
             </td>
             <td>
                 <a th:href="@{'/edit/' + ${book.id}}">Редактировать</a>
@@ -66,7 +66,7 @@
 
 <br/>
 <a name="add"></a>
-<h1>Добавить книгу</h1>
+<h1>Добавить книгу на полку</h1>
 
 <form action="#" name="addBook" id="addBook" th:action="@{/books/add#add}" th:object="${book}" method="post">
     <table class="cell-border">
